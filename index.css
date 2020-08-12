@@ -1,7 +1,25 @@
-body{
+body
+{
     background-color:skyblue ;
 }
 
-h1{
+h1
+{
     color: white;
+}
+
+h2
+{
+    color: snow;
+}
+
+.form,
+.greetings
+{
+    display: none;
+}
+
+.showing
+{
+    display: block;
 }
