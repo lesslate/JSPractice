@@ -6,12 +6,12 @@ const toDoList = document.querySelector(".js-toDoList");
 const TODOS_LS = 'toDos';
 let toDos = [];
 
-function FilterFunc(toDo)
+function filterFunc(toDo)
 {
     return toDo.id === 1;
 }
 
-function DeleteToDo(event)
+function deleteToDo(event)
 {
     const btn = event.target;
     const li = btn.parentNode;
@@ -21,10 +21,10 @@ function DeleteToDo(event)
         return toDo.id !== parseInt(li.id);
     });
     toDos = cleanToDos;
-    SaveToDos();
+    saveToDos();
 }
 
-function SaveToDos()
+function saveToDos()
 {
     localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
 }
@@ -32,11 +32,12 @@ function SaveToDos()
 function paintToDo(text)
 {
     const li = document.createElement("li");
-    const deleteBtn = document.createElement("button");
+    const deleteBtn = document.createElement("span");
     const span = document.createElement("span");
     const newId = toDos.length + 1;
-    deleteBtn.innerHTML = "🙅‍♂️";
-    deleteBtn.addEventListener("click", DeleteToDo);
+    deleteBtn.innerHTML = "❌";
+    deleteBtn.classList.add("delBtn");
+    deleteBtn.addEventListener("click", deleteToDo);
     span.innerText = text;
     li.appendChild(span);
     li.appendChild(deleteBtn);
@@ -48,10 +49,10 @@ function paintToDo(text)
         id: newId
     };
     toDos.push(toDoObj);
-    SaveToDos();
+    saveToDos();
 }
 
-function HandleSubmit(event)
+function handleSubmit(event)
 {
     event.preventDefault();
     const currentValue = toDoInput.value;
@@ -59,7 +60,7 @@ function HandleSubmit(event)
     toDoInput.value = "";
 }
 
-function LoadToDos()
+function loadToDos()
 {
     const loadedToDos = localStorage.getItem(TODOS_LS);
     if (loadedToDos !== null)
@@ -74,10 +75,10 @@ function LoadToDos()
 
 }
 
-function Init()
+function init()
 {
-    LoadToDos();
-    toDoForm.addEventListener("submit", HandleSubmit);
+    loadToDos();
+    toDoForm.addEventListener("submit", handleSubmit);
 }
 
-Init();
+init();

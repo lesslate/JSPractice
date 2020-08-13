@@ -6,7 +6,7 @@ const greeting = document.querySelector(".js-greetings");
 const USER_LS = "currentUser";
 const SHOWING_CN = "showing";
 
-function HandleSubmit(event)
+function handleSubmit(event)
 {
     event.preventDefault();
     const currentValue = input.value;
@@ -22,7 +22,7 @@ function SaveName(text)
 function AskForName()
 {
     form.classList.add(SHOWING_CN);
-    form.addEventListener("submit", HandleSubmit);
+    form.addEventListener("submit", handleSubmit);
 }
 
 function PaintGreeting(text)
@@ -44,9 +44,9 @@ function LoadName()
         PaintGreeting(currentUser);
     }
 }
-function Init()
+function init()
 {
     LoadName()
 }
 
-Init();
+init();

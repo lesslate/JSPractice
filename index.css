@@ -10,27 +10,40 @@ h1
 
 h2
 {
-    color: pink;
-
+    color: white;
 }
 
 li
 {
     color: white;
+    font-size: 3em;
+    
+}
+
+.delBtn
+{
+  margin-left: 10px;
+  cursor: pointer;
 }
 
 .form,
 .greetings
 {
+  padding: 10px;
     display: none;
 }
 
 .showing
 {
     display: block;
+    font-size: 5em;
 }
 
-
+.inputForm
+{
+  padding: 10px;
+  font-size: 20pt;
+}
 
 @keyframes fadeIn
 {
@@ -52,4 +65,17 @@ li
     height: 100%;
     z-index: -1;
     animation: fadeIn .5s linear;
+}
+
+.center 
+{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.clock 
+{
+  font-size: 7em;
 }
